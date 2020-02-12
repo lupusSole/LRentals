@@ -1,0 +1,73 @@
+{% extends 'tenants/base.html' %}
+{% block content %}
+
+<div style="background-color: darkgray; padding: 3%;">
+<h1>Welcome {{user.username}}</h1>
+
+<div class="btn-group" style="padding: 1%;">
+  <a class="btn btn-primary"  href="{% url 'createprofile' %}">New Proflie</a>
+    <div class="dropdown">
+        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Documents
+        </button>
+        {% load static %}
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="{% static 'listings/LR.pdf' %}">Application</a>
+          <a class="dropdown-item" href="#">Tenant Rights</a>
+          <a class="dropdown-item" href="#">Privacy</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Maintenance Request
+        </button>
+        <div class="dropdown-menu">
+            <form class="px-4 py-3"
+            action="mailto:someone@example.com"
+            
+             method="post" enctype="text/plain">
+           
+              <div class="form-group">
+                <label for="exampleDropdownFormEmail1">Email address</label><br>
+                <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com"><br>
+              </div>
+              <div class="form-group">
+                <label for="exampleDropdownFormName">Name</label><br>
+                <input type="text" class="form-control" id="exampleDropdownFormName" placeholder="Your Name"><br>
+              </div>
+              <button type="submit" class="btn btn-success">Email</button>
+              
+            </form>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Please Attach Relevant Photos And Notes In The Email</a>
+            <div class="dropdown-divider"></div>
+            <label style="font-weight: bold;" for="exampleDropdownFormEmail1">Emergency Numbers:</label><br>
+            <label style="background-color: crimson; color: floralwhite;" for="exampleDropdownFormEmail1">Crisis: Dial 911  </label><br>
+            <label style="background-color: rgba(190, 63, 13, 0.938); color: floralwhite;" for="exampleDropdownFormEmail1">Landlord: 416-953-8383   </label><br>
+
+            
+          </div>
+      </div>
+
+</div>
+
+</div>
+<br>
+<div><h3 >Current Tenants In Your Residence:</h3></div>
+<br>
+<ul style="padding-top: 2%; padding-left: 15%; padding-right: 15%;">
+    {% for tenant in tenants %}
+    <a href="{% url 'viewtenant' tenant.id %}">
+    <li> <i class="far fa-user"></i> {{tenant.firstName}}</li>
+    </a>
+    {% endfor %}
+</ul>
+<br>
+
+<div></div>
+
+<br>
+
+
+
+{% endblock%}

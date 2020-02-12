@@ -1,0 +1,15 @@
+{% extends 'tenants/base.html' %}
+{% block content %}
+<h1>Tenant Profile</h1>
+
+
+<h2>{{error}}</h2>
+
+<form action=""
+method="POST">
+{%csrf_token%}
+{{form.as_p}}
+<button type="submit">Save</button>
+</form>
+
+{% endblock%}

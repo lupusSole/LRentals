@@ -1,0 +1,61 @@
+{% extends 'listings/base.html' %}
+{% block content %}
+
+<h1 style="padding-top: 2%;  font-weight: bolder; color: darkgrey;">Leslieville Rentals</h1>
+{% load static %}
+
+
+
+
+<br>
+<div style="padding: 1%;" >
+  <div class="">
+<div class="jumbotron" >
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+          <img src="{% static 'listings/demo.png' %}" class="d-block w-100" alt="..."style="width: 500px; height: 600px;" >
+      </div>
+      {% for listing in listings%}
+      <div class="carousel-item">
+        <img src="{{ listing.image.url }}" class="d-block w-100" alt="..." style="width: 500px; height: 600px;" >
+      </div>
+      {% endfor %} 
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+<div class="card-deck"  style="padding: 5%;">
+    {% for listing in listings%}
+    <div class="card">
+      <img src="{{ listing.image.url }}" class="card-img-top" alt="Listing profile image">
+      <div class="card-body">
+        <h5 class="card-title"><a href="{% url 'listings:detail' listing.id %}">{{listing.title}}</a></h5>
+        <p class="card-text">{{listing.description|truncatechars:100}}</p>
+        <p class="card-text"><small class="text-muted">{{listing.neighbourhood }}</small></p>
+      </div>
+    </div>
+    {% endfor %} 
+</div>
+
+<div style="padding-left: 15%; padding-right: 15%; padding-bottom: 15%;">
+  <h1 style="color: darkgrey;">Since 2001 Leslieville Rentals has offered high end rental properties in the charming East End of Toronto. Specializing in single family dwellings we have a large selection for you and your family to choose
+    from. </h1>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

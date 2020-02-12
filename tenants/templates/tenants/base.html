@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {%load static%}
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="{%static "listings/L.png" %}">
+
+    <title>LeRentals</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{% url 'home' %}">LeRentals</a>
+        {% if user.is_authenticated %}
+        <h3>Logged in as {{user.username}}</h3>
+        {%else%}
+        {%endif%}
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'home' %}" >Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'listings:all_listings' %}">All Properties</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                More
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'listings:all_listings' %}">All Properties</a>
+                <a class="dropdown-item" href="{% url 'listings:available' %}">Available</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" style="background-color: rgb(67, 85, 190); color: white;">Privacy Policies</a>
+                {% if user.is_authenticated %}
+                 <form action="{% url 'logoutuser'%}"
+                 method="POST">
+                 {%csrf_token%}
+                 
+                     <button class="dropdown-item btn btn-danger" type="submit" style="background-color: red; color: white;">
+                         
+                    
+                         Logout
+
+                     </button>
+                 </form>
+                  {%else%}
+                   <a class="dropdown-item" href="{% url 'signupTenant' %}" style="background-color: springgreen; color: white;">Login</a>
+                    {%endif%}
+               
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="{% url 'tenantarea' %}" tabindex="-1" aria-disabled="true">Tenants Area</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+<div style="text-align: center;">
+{% block content %}
+{% endblock %}
+
+</div>
+
+<div style="min-height:40px;  background-color: rgb(211, 219, 219); text-align: center; position:fixed; bottom: 0; width: 100%;">
+    <h3>Leslieville Rentals</h3>
+    <p class="d2d">Made With ❤️ by  <a href="http://www.daretodream.online/"> Dare To Dream</a></p>
+    <p>Copyright 2020 @LeRentals</p>
+</div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+{% extends 'tenants/base.html' %}
+{% block content %}
+<h1>Log In</h1>
+
+<h2 style="background-color: crimson; color: floralwhite;">{{error}}</h2>
+<br>
+<form action="" method="POST" style="justify-content: center; ">
+    <div class="form-group">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Sign In</button>
+</div>
+</form>
+
+<h3>Don't Have An Account? <a href="{% url 'signupTenant' %}">Sign Up Here</a></h3>
+
+{% endblock%}

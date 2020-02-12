@@ -1,0 +1,41 @@
+{% extends 'listings/base.html' %}
+{% block content %}
+
+<h1>All Listings</h1>
+
+<h2>Leslieville Rentals</h2>
+<h5> Currently Managing {{listings.count}} Propertie{{listings.count|pluralize}}</h5>
+
+<div style="padding: 5%;">
+<ul class="list-unstyled">
+    {% for listing in listings %}
+    <li class="media">
+      <img src="{{ listing.image.url }}" class="mr-3" alt="Listing profile image" style="width: 140px; height: 140px;">
+      <div class="media-body">
+        <h5 class="mt-0 mb-1"><a href="{% url 'listings:detail' listing.id %}">{{listing.title}}</a></h5>
+        <p>{{listing.description|truncatechars:100}}</p>
+        {% if listing.available %}
+
+       <h5 style="color: chartreuse;">Is Available <i><i class="far fa-spin fa-check-circle"></i></i></h5>
+
+         {% endif %}
+      </div>
+    </li>
+    <br>
+    {% endfor %}
+  </ul>
+</div>
+
+
+<br>
+<br>
+
+
+
+
+
+
+
+
+
+{% endblock %}

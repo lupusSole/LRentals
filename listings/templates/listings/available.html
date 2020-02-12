@@ -1,0 +1,38 @@
+{% extends 'listings/base.html' %}
+{% block content %}
+
+<h1>Available Listings</h1>
+
+{% for listing in listings %}
+{% if listing.available %}
+
+<div style="padding:2%;">
+<ul class="list-unstyled">
+  <li class="media">
+    <img src="{{ listing.image.url }}" class="mr-3" alt="..." style="width: 140px; height: 140px;">
+    <div class="media-body">
+      <a href="{% url 'listings:detail' listing.id %}"><h3 class="mt-0 mb-1">{{listing.title}}</h3></a>
+      <h5>Date Available: {{ listing.dateAvailable }}</h5>
+      <p>{{listing.description}}</p>
+    </div>
+  </li>
+
+</ul>
+</div>
+
+
+
+
+{% endif %}
+
+
+
+{% endfor %}
+{% endblock %}
+
+
+
+
+
+
+

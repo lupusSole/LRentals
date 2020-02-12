@@ -1,0 +1,23 @@
+{% extends 'tenants/base.html' %}
+{% block content %}
+<div>
+<h1>Welcome {{user.username}}</h1>
+</div>
+
+<h3 style="background-color: crimson;">{{error}}</h3>
+
+{{tenant.firstName}}
+
+<div>
+    <form method="POST">
+        {%csrf_token%}
+    {{form.as_p}}
+    <button class="btn btn-primary" type="submit">Save</button>
+</form>
+</div>
+
+<br>
+
+
+
+{% endblock %}
