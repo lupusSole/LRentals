@@ -25,7 +25,7 @@ SECRET_KEY = '!-=7p_3a!ywe0w8t9vavf@ga6v)eyyg#fsv6zdw!$$c2i96ea5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['daretodream.pythonanywhere.com']
+ALLOWED_HOSTS = [ 'www.leslievillerentals.com']
 
 
 # Application definition
