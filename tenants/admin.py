@@ -6,3 +6,4 @@ class TenantAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Tenant, TenantAdmin)
+admin.site.site_header = "LeRentals Admin"

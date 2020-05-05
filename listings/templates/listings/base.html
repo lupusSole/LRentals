@@ -11,12 +11,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="icon" type="image/png" href="{%static "listings/L.png" %}">
+    <link rel="icon" href="favicon.ico?" type="image/x-icon">
     <link rel="stylesheet" href="{%static "listings/custom.css" %}">
+    
 
     <title>LeRentals</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light" style="margin: 1.5%; border-radius: 3px;  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05), 0 5px 10px rgba(0, 0, 0, 0.1);">
         <a class="navbar-brand" href="{% url 'home' %}">LeRentals</a>
         {% if user.is_authenticated %}
         <h3>Logged in as {{user.username}}</h3>
@@ -67,7 +69,7 @@
           </ul>
           <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
           </form>
         </div>
       </nav>
@@ -77,7 +79,7 @@
 
 </div>
 
-<div style="min-height:40px;  background-color: rgb(211, 219, 219); text-align: center; position:fixed; bottom: 0; width: 100%;">
+<div style="min-height:40px;  background-color: rgb(236, 241, 241); text-align: center; position:fixed; bottom: 0; width: 100%;  z-index: 999;">
     <h3>Leslieville Rentals 🇨🇦 🇮🇷</h3>
     <p class="d2d">Made With ❤️ by  <a href="http://www.daretodream.online/"> Dare To Dream</a></p>
     <p>Copyright 2020 @LeRentals</p>

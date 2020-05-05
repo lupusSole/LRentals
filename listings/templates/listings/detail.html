@@ -19,10 +19,11 @@
         
           <h5><a href="https://www.google.com/maps/place/Toronto,+ON+{{ listing.postalCode }}" target="_blank"> Map <i><i class="fas fa-map-marked-alt"></i></i> </a></h5>
           
-<div class="btn-group  "></div>
-<button type="button" class="btn btn-secondary dropdown-toggle btn-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<div class="btn-group  ">
+ <button type="button" class="btn btn-secondary dropdown-toggle btn-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
    Apply Now
   </button>
+
 
 
   <div class="dropdown-menu">
@@ -46,6 +47,25 @@
     <a class="dropdown-item" href="#">Please Complete And Attach Application Form</a>
     
   </div>
+  <!-- Default dropright button -->
+<div class="btn-group dropright">
+  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Share
+  </button>
+  <div class="dropdown-menu" >
+    <!-- Dropdown menu links -->
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.leslievillerentals.com/listings/+{{listing_id}}" 
+    style="background-color: #0352fc; color: cornsilk;"
+    target="_blank"  class=" btn btn-block btn-social btn-facebook" ><i class="fab fa-facebook"> Facebook</i></a>
+    <br>
+    <a href="https://twitter.com/intent/tweet?text=Check+Out+This+Great+Property+For+Rent!=https://www.leslievillerentals.com/listings/{{listing_id}}" 
+    style="background-color: #03b1fc; color: white;"
+     target="_blank" class=" btn btn-block btn-social btn-twitter" ><i class="fab fa-twitter-square"> Twitter</i></a>
+    <br>
+  </div>
+</div>
+
+</div>
 </div>
 
   {%endif%}
